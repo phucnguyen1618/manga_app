@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'modules/explore/view/explore_page.dart';
+import 'package:manga_app/routes/app_pages.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -14,7 +13,8 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ExplorePage(),
+      initialRoute: Routes.EXPLORE,
+      getPages: routePages,
     );
   }
 }

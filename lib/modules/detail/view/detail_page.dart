@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:manga_app/modules/detail/controller/detail_controller.dart';
@@ -12,6 +14,8 @@ class DetailPage extends StatelessWidget {
     final controller = Get.put(DetailController());
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () => controller.onBack(),
           icon: const Icon(
@@ -36,6 +40,12 @@ class DetailPage extends StatelessWidget {
           ),
         ],
       ),
+      body: Column(
+        children: [
+
+        ],
+      ),
+      bottomSheet: bottomContentDetailManga(),
     );
   }
 }
