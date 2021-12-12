@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:manga_app/modules/explore/controller/explore_controller.dart';
+import 'package:manga_app/modules/genres/controller/genres_controller.dart';
 
 class ItemMangaListWidget extends StatelessWidget {
   const ItemMangaListWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ExploreController controller = Get.find<ExploreController>();
+    GenresController controller = Get.find<GenresController>();
     return GestureDetector(
       onTap: () => controller.onItemMangaClicked(),
       child: Container(

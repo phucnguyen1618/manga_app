@@ -1,17 +1,18 @@
+import 'dart:developer';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:manga_app/modules/detail/controller/detail_controller.dart';
+import 'package:manga_app/modules/detail/manga/controller/detail_manga_controller.dart';
 
-part 'detail_page_children.dart';
+part 'detail_manga_page_children.dart';
 
-class DetailPage extends StatelessWidget {
-  const DetailPage({Key? key}) : super(key: key);
+class DetailMangaPage extends StatelessWidget {
+  const DetailMangaPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(DetailController());
+    final controller = Get.put(DetailMangaController());
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -38,11 +39,6 @@ class DetailPage extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-        ],
-      ),
-      body: Column(
-        children: [
-
         ],
       ),
       bottomSheet: bottomContentDetailManga(),

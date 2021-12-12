@@ -1,164 +1,140 @@
 part of 'explore_page.dart';
 
 extension ExplorePageChildren on ExplorePage {
-  Widget _menuApp() {
-    return Column(
-      children: const [
-        ListTile(
-          leading: Icon(
-            Icons.explore_outlined,
-            color: Colors.black,
-          ),
-          title: Text(
-            'Explore Comic',
-            style: TextStyle(color: Colors.black),
-          ),
+  Widget bottomSheetTopAuthor() {
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(24.0),
+          topRight: Radius.circular(24.0),
         ),
-        ListTile(
-          leading: Icon(
-            Icons.favorite_border_outlined,
-            color: Colors.black,
+      ),
+      width: double.infinity,
+      height: 350.0,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+            margin: const EdgeInsets.only(top: 16.0),
+            width: 30.0,
+            height: 5.0,
           ),
-          title: Text(
-            'Favorites',
-            style: TextStyle(color: Colors.black),
+          const SizedBox(
+            height: 16.0,
           ),
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.account_circle_outlined,
-            color: Colors.black,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(left: 16.0),
+                child: Text(
+                  'Top Author',
+                  style: TextStyle(
+                    color: Color(0xFF424f56),
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Container(
+                margin:
+                    const EdgeInsets.only(left: 16.0, right: 16.0, top: 12.0),
+                height: 120,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return const ItemTopAuthorWidget();
+                    }),
+              ),
+            ],
           ),
-          title: Text(
-            'Author',
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.search,
-            color: Colors.black,
-          ),
-          title: Text(
-            'Search',
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.notifications_none_outlined,
-            color: Colors.black,
-          ),
-          title: Text(
-            'Notifications',
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.settings_outlined,
-            color: Colors.black,
-          ),
-          title: Text(
-            'Settings',
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.logout,
-            color: Colors.black,
-          ),
-          title: Text(
-            'Sign out',
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
-      ],
+          footerContinueReading(),
+        ],
+      ),
     );
   }
 
-  Widget _headerMenuApp() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
+  Widget footerContinueReading() {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(24.0),
+      child: Container(
+        margin: const EdgeInsets.only(top: 8.0, left: 2.0, right: 2.0),
+        width: double.infinity,
+        height: 154,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          gradient: const LinearGradient(colors: [
+            Color(0xFFfa7b65),
+            Color(0xFFfd6673),
+          ]),
+        ),
+        child: Column(
           children: [
-            const FlutterLogo(
-              size: 56.0,
-            ),
             Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    'MANGA APP',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 23.0,
-                        fontWeight: FontWeight.bold),
+              padding: const EdgeInsets.only(
+                  left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Continue Reading',
+                    style: TextStyle(color: Colors.white, fontSize: 16.0),
                   ),
-                  SizedBox(
-                    height: 6.0,
-                  ),
-                  Text(
-                    'Version 1.0.0',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14.0,
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.more_horiz,
+                      color: Colors.white,
                     ),
                   ),
                 ],
               ),
             ),
+            Container(
+              margin: const EdgeInsets.only(left: 16.0, right: 16.0),
+              height: 68.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(24.0),
+              ),
+              child: ListTile(
+                leading: const FlutterLogo(size: 34.0,),
+                title: const Text(
+                  'Martial Peak',
+                  style: TextStyle(
+                      color: Color(0xFF424f56),
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold),
+                ),
+                subtitle: const Text(
+                  'Chapter 213',
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    color: Color(0xFF424f56),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                trailing: IconButton(
+                  icon: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black,
+                  ),
+                  onPressed: () {
+                    log('Clicked');
+                  },
+                ),
+              ),
+            )
           ],
         ),
-        const SizedBox(
-          height: 8.0,
-        ),
-        const Text(
-          'Ứng dụng đọc truyện tranh online.',
-          style: TextStyle(
-              color: Colors.grey,
-              fontSize: 14.0,
-              fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(
-          height: 16.0,
-        ),
-        const Divider(
-          height: 1.0,
-          color: Colors.grey,
-        ),
-      ],
-    );
-  }
-
-  Widget _titleAppBar() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
-        Text(
-          'Chào buổi sáng',
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 14.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(
-          height: 4.0,
-        ),
-        Text(
-          'Nguyen Hoang Phuc',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 16.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
