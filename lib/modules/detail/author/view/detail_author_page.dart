@@ -1,7 +1,9 @@
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:manga_app/constant/app_color.dart';
 import 'package:manga_app/modules/detail/author/controller/detail_author_controller.dart';
+import 'package:manga_app/shared/widgets/item_author_manga_widget.dart';
 
 part 'detail_author_page_children.dart';
 
@@ -37,11 +39,13 @@ class DetailAuthorPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          showDetailAuthor(),
-          showListMangaByAuthor(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            showDetailAuthor(),
+            showListMangaByAuthor(),
+          ],
+        ),
       ),
     );
   }

@@ -13,7 +13,7 @@ extension DetailMangaPageChildren on DetailMangaPage {
           ),
         ),
         width: double.infinity,
-        height: 450.0,
+        height: 500.0,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -55,7 +55,7 @@ extension DetailMangaPageChildren on DetailMangaPage {
             ),
             SingleChildScrollView(
               child: SizedBox(
-                height: 300,
+                height: 360,
                 child: TabBarView(children: [
                   showInformationManga(),
                   showChapterManga(),
@@ -101,8 +101,8 @@ extension DetailMangaPageChildren on DetailMangaPage {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20.0),
                       gradient: const LinearGradient(colors: [
-                        Color(0xFFfa7b65),
-                        Color(0xFFfd6673),
+                        Constant.startColor,
+                        Constant.endColor,
                       ]),
                     ),
                     child: const Icon(
@@ -262,7 +262,10 @@ extension DetailMangaPageChildren on DetailMangaPage {
             ),
             trailing: Text(
               '12/12/2020',
-              style: TextStyle(color: Colors.grey, fontSize: 16.0, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold),
             ),
           );
         });
@@ -270,6 +273,7 @@ extension DetailMangaPageChildren on DetailMangaPage {
 
   Widget showAuthorManga() {
     return ListTile(
+      contentPadding: const EdgeInsets.only(top: 16.0),
       leading: ClipRRect(
         borderRadius: BorderRadius.circular(16.0),
         child: CircleAvatar(
