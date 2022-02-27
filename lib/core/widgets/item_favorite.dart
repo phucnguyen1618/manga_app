@@ -1,91 +1,96 @@
 import 'package:flutter/material.dart';
-import 'package:manga_app/core/constant/app_color.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ItemFavorite extends StatelessWidget {
   const ItemFavorite({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin:
-          const EdgeInsets.only(bottom: 8.0, top: 8.0, left: 16.0, right: 16.0),
-      shadowColor: Colors.grey,
-      color: AppColor.backgroundColor,
-      elevation: 3.0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16.0),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
+    double newWidth = MediaQuery.of(context).size.width - 32;
+    return Container(
+      margin: const EdgeInsets.only(right: 16.0),
+      width: newWidth,
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12.0),
+            child: SizedBox(
+              width: double.infinity,
+              height: 150.0,
               child: Image.asset(
-                'assets/images/conan.jpg',
-                width: 60.0,
-                height: 80.0,
-                fit: BoxFit.cover,
+                'assets/images/kimetsu_no_yaiba.jpg',
+                fit: BoxFit.fill,
               ),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Volcanic age',
-                      style: TextStyle(
-                        color: AppColor.textColor,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 3.0,
-                    ),
-                    Text(
-                      'By Turtle me',
-                      style: TextStyle(
-                        color: AppColor.textColor,
-                        fontSize: 13.0,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 16.0,
-                    ),
-                    Text(
-                      'Next chapter 87',
-                      style: TextStyle(
-                        color: AppColor.textColor,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: const [
-                Icon(
-                  Icons.cloud_download_outlined,
-                  color: AppColor.iconColor,
-                ),
-                SizedBox(
-                  height: 32.0,
-                ),
-                Text(
-                  '4,5k Views',
-                  style: TextStyle(
-                    color: AppColor.textColor,
-                    fontSize: 14.0,
+          ),
+          const SizedBox(
+            height: 12.0,
+          ),
+          Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12.0),
+                child: SizedBox(
+                  width: 60.0,
+                  height: 60.0,
+                  child: Image.asset(
+                    'assets/images/conan.jpg',
+                    fit: BoxFit.fill,
                   ),
                 ),
-              ],
-            )
-          ],
-        ),
+              ),
+              const SizedBox(
+                width: 8.0,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Demo Slayer: Kimetsu no Yaiba',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Text(
+                    'Action, Adventure, Comedy',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      color: Colors.white60,
+                    ),
+                  ),
+                  const SizedBox(height: 6.0,),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      RatingBar.builder(
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          initialRating: 5,
+                          itemSize: 12.0,
+                          itemBuilder: (context, index) {
+                            return const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                            );
+                          },
+                          onRatingUpdate: (newValue) {}),
+                      const SizedBox(width: 6.0,),
+                      const Text(
+                        '5.0',
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

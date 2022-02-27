@@ -7,7 +7,7 @@ extension HomePageChildren on HomePage {
       minLeadingWidth: 16.0,
       contentPadding: EdgeInsets.zero,
       leading: CircleAvatar(
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.white,
         child: FlutterLogo(),
       ),
       title: Text(

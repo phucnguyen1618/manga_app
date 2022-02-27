@@ -26,8 +26,8 @@ class ItemNewRelease extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12.0),
               ),
               foregroundDecoration: BoxDecoration(
-                color:
-                    Color.fromARGB(Color.getAlphaFromOpacity(0.5), 15, 23, 42),
+                color: Color.fromARGB(
+                    Color.getAlphaFromOpacity(0.5), 15, 23, 42),
               ),
               child: Image.asset(
                 'assets/images/conan.jpg',
