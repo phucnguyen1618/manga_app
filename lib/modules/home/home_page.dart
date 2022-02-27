@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:manga_app/core/constant/app_color.dart';
+import 'package:manga_app/modules/bookmark/bookmark_page.dart';
 import 'package:manga_app/modules/explore/explore_page.dart';
 import 'package:manga_app/modules/favorites/favorites_page.dart';
-import 'package:manga_app/modules/genres/genres_page.dart';
+import 'package:manga_app/modules/search/search_page.dart';
 import 'package:manga_app/modules/settings/setting_page.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
@@ -45,7 +46,7 @@ class HomePage extends StatelessWidget {
         screens: const [
           ExplorePage(),
           FavoritesPage(),
-          GenresPage(),
+          BookmarkPage(),
           SettingPage(),
         ],
       ),

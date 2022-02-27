@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:manga_app/core/constant/app_color.dart';
 import 'package:manga_app/core/widgets/item_favorite.dart';
+import 'package:manga_app/core/widgets/item_top_author.dart';
 import 'package:manga_app/core/widgets/item_trending_manga.dart';
 
 class FavoritesPage extends StatefulWidget {
@@ -24,6 +25,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
             children: [
               _buildTopFavoriteManga(),
               _buildTopTrendingManga(),
+              _buildTopAuthorList(),
             ],
           ),
         ),
@@ -41,7 +43,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
             'Top Favorite',
             style: TextStyle(
               fontSize: 18.0,
-              color: Colors.white,
+              color: AppColor.textColor,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -77,7 +79,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
             'Trending Manga',
             style: TextStyle(
               fontSize: 18.0,
-              color: Colors.white,
+              color: AppColor.textColor,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -127,6 +129,34 @@ class _FavoritesPageState extends State<FavoritesPage> {
                 color: Colors.grey,
               ),
             ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildTopAuthorList() {
+    return Column(
+      children: [
+        const ListTile(
+          contentPadding: EdgeInsets.zero,
+          title: Text(
+            'Top Author',
+            style: TextStyle(
+              color: AppColor.textColor,
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 120,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return const ItemTopAuthor();
+            },
           ),
         ),
       ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ItemTopAuthorWidget extends StatelessWidget {
-  const ItemTopAuthorWidget({Key? key}) : super(key: key);
+class ItemTopAuthor extends StatelessWidget {
+  const ItemTopAuthor({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class ItemTopAuthorWidget extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(40.0),
             child: Image.asset(
-              'assets/images/kimetsu_no_yaiba.jpg',
+              'assets/images/one_piece.jpg',
               fit: BoxFit.fill,
               width: 80.0,
               height: 80.0,
@@ -25,9 +25,8 @@ class ItemTopAuthorWidget extends StatelessWidget {
           const Text(
             'Jihyun',
             style: TextStyle(
-              color: Color(0xFF424f56),
+              color: Colors.white,
               fontSize: 16.0,
-              fontWeight: FontWeight.bold,
             ),
           ),
 

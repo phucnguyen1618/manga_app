@@ -5,8 +5,6 @@ import 'package:manga_app/core/widgets/item_most_popular.dart';
 import 'package:manga_app/core/widgets/item_new_release.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../detail/manga/detail_manga_page.dart';
-
 class ExplorePage extends StatefulWidget {
   const ExplorePage({Key? key}) : super(key: key);
 
@@ -83,17 +81,7 @@ class _ExplorePageState extends State<ExplorePage> {
                 controller: controller,
                 itemCount: 10,
                 itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const DetailMangaPage(),
-                        ),
-                      );
-                    },
-                    child: const ItemNewRelease(),
-                  );
+                  return const ItemNewRelease();
                 },
               ),
             ),
