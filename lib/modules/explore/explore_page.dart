@@ -3,6 +3,7 @@ import 'package:manga_app/core/constant/app_color.dart';
 import 'package:manga_app/core/widgets/item_recommended.dart';
 import 'package:manga_app/core/widgets/item_most_popular.dart';
 import 'package:manga_app/core/widgets/item_new_release.dart';
+import 'package:manga_app/data/comic.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ExplorePage extends StatefulWidget {
@@ -19,6 +20,28 @@ class _ExplorePageState extends State<ExplorePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: AppColor.backgroundColor,
+        centerTitle: false,
+        title: _titleAppBar(),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.notifications_outlined,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
@@ -35,6 +58,33 @@ class _ExplorePageState extends State<ExplorePage> {
               _buildRecommended(),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _titleAppBar() {
+    return const ListTile(
+      minLeadingWidth: 16.0,
+      contentPadding: EdgeInsets.zero,
+      leading: CircleAvatar(
+        backgroundColor: Colors.white,
+        child: FlutterLogo(),
+      ),
+      title: Text(
+        'Good morning',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 14.0,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      subtitle: Text(
+        'Nguyễn Hoàng Phúc',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 16.0,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
@@ -79,9 +129,11 @@ class _ExplorePageState extends State<ExplorePage> {
               height: 230,
               child: PageView.builder(
                 controller: controller,
-                itemCount: 10,
+                itemCount: comics.length,
                 itemBuilder: (context, index) {
-                  return const ItemNewRelease();
+                  return ItemNewRelease(
+                    comic: comics[index],
+                  );
                 },
               ),
             ),
@@ -90,7 +142,7 @@ class _ExplorePageState extends State<ExplorePage> {
               bottom: 16.0,
               child: SmoothPageIndicator(
                 controller: controller,
-                count: 5,
+                count: comics.length,
                 effect: const ExpandingDotsEffect(
                   dotHeight: 8.0,
                   dotWidth: 8.0,
@@ -143,14 +195,14 @@ class _ExplorePageState extends State<ExplorePage> {
           child: GridView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: 6,
+            itemCount: comics.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               mainAxisSpacing: 72.0,
               crossAxisSpacing: 12.0,
             ),
             itemBuilder: (context, index) {
-              return const ItemMostPopular();
+              return ItemMostPopular(comic: comics[index]);
             },
           ),
         ),
@@ -195,9 +247,9 @@ class _ExplorePageState extends State<ExplorePage> {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
-            itemCount: 10,
+            itemCount: comics.length,
             itemBuilder: (context, index) {
-              return const ItemRecommended();
+              return ItemRecommended(comic: comics[index]);
             },
           ),
         ),

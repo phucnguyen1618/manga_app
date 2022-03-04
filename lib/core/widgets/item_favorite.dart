@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import '../../data/comic.dart';
+
 class ItemFavorite extends StatelessWidget {
-  const ItemFavorite({Key? key}) : super(key: key);
+  const ItemFavorite({Key? key, required this.comic}) : super(key: key);
+
+  final Comic comic;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +22,8 @@ class ItemFavorite extends StatelessWidget {
               width: double.infinity,
               height: 150.0,
               child: Image.asset(
-                'assets/images/kimetsu_no_yaiba.jpg',
-                fit: BoxFit.fill,
+                comic.background,
+                fit: BoxFit.cover,
               ),
             ),
           ),
@@ -34,7 +38,7 @@ class ItemFavorite extends StatelessWidget {
                   width: 60.0,
                   height: 60.0,
                   child: Image.asset(
-                    'assets/images/conan.jpg',
+                    comic.poster,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -45,9 +49,9 @@ class ItemFavorite extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Demo Slayer: Kimetsu no Yaiba',
-                    style: TextStyle(
+                  Text(
+                    comic.name,
+                    style: const TextStyle(
                       fontSize: 16.0,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -60,7 +64,9 @@ class ItemFavorite extends StatelessWidget {
                       color: Colors.white60,
                     ),
                   ),
-                  const SizedBox(height: 6.0,),
+                  const SizedBox(
+                    height: 6.0,
+                  ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -76,7 +82,9 @@ class ItemFavorite extends StatelessWidget {
                             );
                           },
                           onRatingUpdate: (newValue) {}),
-                      const SizedBox(width: 6.0,),
+                      const SizedBox(
+                        width: 6.0,
+                      ),
                       const Text(
                         '5.0',
                         style: TextStyle(

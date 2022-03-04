@@ -3,6 +3,7 @@ import 'package:manga_app/core/constant/app_color.dart';
 import 'package:manga_app/core/widgets/item_favorite.dart';
 import 'package:manga_app/core/widgets/item_top_author.dart';
 import 'package:manga_app/core/widgets/item_trending_manga.dart';
+import 'package:manga_app/data/comic.dart';
 
 class FavoritesPage extends StatefulWidget {
   const FavoritesPage({Key? key}) : super(key: key);
@@ -21,12 +22,15 @@ class _FavoritesPageState extends State<FavoritesPage> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              _buildTopFavoriteManga(),
-              _buildTopTrendingManga(),
-              _buildTopAuthorList(),
-            ],
+          child: SafeArea(
+            top: true,
+            child: Column(
+              children: [
+                _buildTopFavoriteManga(),
+                _buildTopTrendingManga(),
+                _buildTopAuthorList(),
+              ],
+            ),
           ),
         ),
       ),
@@ -59,9 +63,9 @@ class _FavoritesPageState extends State<FavoritesPage> {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
-            itemCount: 10,
+            itemCount: comics.length,
             itemBuilder: (context, index) {
-              return const ItemFavorite();
+              return ItemFavorite(comic: comics[index]);
             },
           ),
         ),
@@ -98,11 +102,11 @@ class _FavoritesPageState extends State<FavoritesPage> {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 16.0,
-            mainAxisSpacing: 32.0,
-            childAspectRatio: 0.75,
+            mainAxisSpacing: 16.0,
+            childAspectRatio: 3/4,
           ),
           itemBuilder: (context, index) {
-            return const ItemTrendingManga(image: 'assets/images/conan.jpg');
+            return ItemTrendingManga(comic: comics[index]);
           },
         ),
         const SizedBox(
@@ -152,6 +156,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
         SizedBox(
           height: 120,
           child: ListView.builder(
+            itemCount: 10,
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
             itemBuilder: (context, index) {

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../data/comic.dart';
+
 class ItemMostPopular extends StatelessWidget {
-  const ItemMostPopular({Key? key}) : super(key: key);
+  const ItemMostPopular({Key? key, required this.comic}) : super(key: key);
+
+  final Comic comic;
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +22,17 @@ class ItemMostPopular extends StatelessWidget {
               height: 120,
               width: 120,
               child: Image.asset(
-                'assets/images/kimetsu_no_yaiba.jpg',
+                comic.poster,
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          const Expanded(
+          Expanded(
             child: Text(
-              'Demo Slayer: Kimetsu no Yaiba',
+              comic.name,
               maxLines: 2,
               textAlign: TextAlign.start,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 12.0,
                 fontWeight: FontWeight.bold,

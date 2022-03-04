@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../data/comic.dart';
+
 class ItemRecommended extends StatelessWidget {
-  const ItemRecommended({Key? key}) : super(key: key);
+  const ItemRecommended({Key? key, required this.comic}) : super(key: key);
+
+  final Comic comic;
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +23,17 @@ class ItemRecommended extends StatelessWidget {
               height: 120,
               width: 120,
               child: Image.asset(
-                'assets/images/one_piece.jpg',
+                comic.poster,
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          const Expanded(
+          Expanded(
             child: Text(
-              'One Piece',
+              comic.name,
               maxLines: 1,
               textAlign: TextAlign.start,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 14.0,
                 fontWeight: FontWeight.bold,

@@ -13,7 +13,7 @@ class ItemTopAuthor extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(40.0),
             child: Image.asset(
-              'assets/images/one_piece.jpg',
+              'assets/images/poster/one_piece.jpg',
               fit: BoxFit.fill,
               width: 80.0,
               height: 80.0,
@@ -23,7 +23,7 @@ class ItemTopAuthor extends StatelessWidget {
             height: 8.0,
           ),
           const Text(
-            'Jihyun',
+            'Eiichiro Oda',
             style: TextStyle(
               color: Colors.white,
               fontSize: 16.0,

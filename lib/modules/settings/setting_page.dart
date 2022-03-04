@@ -6,84 +6,9 @@ class SettingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: AppColor.backgroundColor,
-      body: Column(
-        children: [
-          ListTile(
-            title: const Text(
-              'Setting account',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            trailing: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.arrow_forward_ios,
-                size: 18.0,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          ListTile(
-            title: const Text(
-              'Set theme',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            trailing: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.arrow_forward_ios,
-                size: 18.0,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          ListTile(
-            title: const Text(
-              'Setting account',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            trailing: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.arrow_forward_ios,
-                size: 18.0,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          ListTile(
-            title: const Text(
-              'Log out',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            trailing: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.arrow_forward_ios,
-                size: 18.0,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ],
-      ),
+      body: SizedBox(),
     );
   }
 }
